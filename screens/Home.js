@@ -1,37 +1,39 @@
-import {View, Text, FlatList, SafeAreaView} from 'react-native'
+import { View, FlatList, SafeAreaView } from "react-native";
 
-import {COLORS, NFTData} from '../constants'
+import { COLORS, NFTData } from "../constants";
 
-import {NFTCard, FocusedStatusBar, HomeHeader} from '../components'
+import { NFTCard, FocusedStatusBar, HomeHeader } from "../components";
 
 const Home = () => {
-  return (
-   <SafeAreaView style={{flex: 1}}>
-     <FocusedStatusBar backgroundColor={COLORS.primary}/>
-     <View style={{flex: 1}}>
-       <View style={{zIndex: 0}}>
-          <FlatList 
-          data={NFTData} 
-          keyExtractor={(item) => item.id}
-          showsVerticalScrollIndicator={false}
-          renderItem={({item}) => <NFTCard data={item}/>}         
-          ListHeaderComponent={<HomeHeader/>}
-          />
-       </View>
-       <View style={{
-         position: 'absolute',
-         top: 0,
-         left: 0,
-         right: 0,
-         bottom: 0,
-         zIndex: -1,
-       }}>
-         <View style={{height: 300, backgroundColor: COLORS.primary}}/>
-         <View style={{flex: 1, backgroundColor: COLORS.white}}/>
-       </View>
-     </View>
-   </SafeAreaView>
-  )
-}
+	return (
+		<SafeAreaView style={{ flex: 1 }}>
+			<FocusedStatusBar backgroundColor={COLORS.primary} />
+			<View style={{ flex: 1 }}>
+				<View style={{ zIndex: 0 }}>
+					<FlatList
+						data={NFTData}
+						keyExtractor={(item) => item.id}
+						showsVerticalScrollIndicator={false}
+						renderItem={({ item }) => <NFTCard data={item} />}
+						ListHeaderComponent={<HomeHeader />}
+					/>
+				</View>
+				<View
+					style={{
+						position: "absolute",
+						top: 0,
+						left: 0,
+						right: 0,
+						bottom: 0,
+						zIndex: -1,
+					}}
+				>
+					<View style={{ height: 300, backgroundColor: COLORS.primary }} />
+					<View style={{ flex: 1, backgroundColor: COLORS.white }} />
+				</View>
+			</View>
+		</SafeAreaView>
+	);
+};
 
-export default Home
+export default Home;
