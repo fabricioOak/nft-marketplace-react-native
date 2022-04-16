@@ -33,8 +33,17 @@ const DetailsHeader = ({ data, navigation }) => (
 			}}
 		/>
 
-    <CircleButton left={15} top={StatusBar.currentHeight + 10} imgUrl={assets.left} handlePress={() => navigation.goBack()}/>
-    <CircleButton right={15} top={StatusBar.currentHeight + 10} imgUrl={assets.heart}/>
+		<CircleButton
+			left={15}
+			top={StatusBar.currentHeight + 10}
+			imgUrl={assets.left}
+			handlePress={() => navigation.goBack()}
+		/>
+		<CircleButton
+			right={15}
+			top={StatusBar.currentHeight + 10}
+			imgUrl={assets.heart}
+		/>
 	</View>
 );
 const Details = ({ route, navigation }) => {
@@ -76,6 +85,17 @@ const Details = ({ route, navigation }) => {
 				ListHeaderComponent={() => (
 					<>
 						<DetailsHeader data={data} navigation={navigation} />
+						<SubInfo />
+						<View style={{padding: SIZES.font}}>
+							<DetailsDesc data={data}/>
+							{data.bids.length > 0 && (
+								<Text style={{
+									fontSize: SIZES.font,
+									fontFamily: FONTS.semiBold,
+									color: COLORS.primary,
+								}}>Current Bid</Text>
+							)}
+						</View>
 					</>
 				)}
 			/>
